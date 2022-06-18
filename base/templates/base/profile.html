@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    {{request.user}}
+    <img width="200px" src="{{request.user.avatar.url}}" alt="avatar">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{form}}
+        <input type="submit" value="save">
+    </form>
+
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends 'main.html' %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <label for="id_description">Description:</label>
+    <textarea name="description" cols="40" rows="10" id="id_description">{{item.description}}</textarea>
+
+    <input type="submit" value="submit">
+
+</form>
+{% endblock content %}

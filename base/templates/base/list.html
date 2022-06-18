@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+{% block content %}
+    <h3>{{list}}</h3>
+
+    <form method="POST">
+    {% csrf_token %}
+
+    {% for todo in items %}
+        {{todo}} - {{todo.description}} - {{todo.date_created}}
+        <a href="{% url 'edit_item' todo.id %}">edit</a>
+        <a href="{% url 'delete_item' todo.id %}">remove</a>
+        <br>
+        {% empty %}
+        <h3>Is Empty</h3>
+    {% endfor %}
+    </form>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <input name="title" placeholder="Write your todo here...">
+    </form>
+{% endblock content %}

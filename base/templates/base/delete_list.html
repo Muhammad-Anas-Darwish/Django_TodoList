@@ -1,0 +1,10 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<p>Are you sure you want to delete {{list.todo_list}}</p>
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" value="delete">
+    <a href="{% url 'home' %}">Cancel</a>
+</form>
+{% endblock content %}
